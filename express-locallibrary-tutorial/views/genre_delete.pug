@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1=title
+  if genre_books && genre_books.length
+    p Cannot delete the genre because it has associated books.
+    ul
+      each book in genre_books
+        li #{book.title}
+  else
+    p Are you sure you want to delete the genre "#{genre.name}"?
+    form(method="POST")
+      button.btn.btn-primary(type="submit") Delete
